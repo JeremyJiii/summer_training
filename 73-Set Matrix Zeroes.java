@@ -1,3 +1,4 @@
+//方法非常巧妙，将是否为0的信息储存在第一行和第一列中
 class Solution {
     public void setZeroes(int[][] matrix) {
     boolean fr = false,fc = false;
