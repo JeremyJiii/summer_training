@@ -1,3 +1,4 @@
+//用优先队列进行操作，复习优先队列相关知识
 public class Solution {
     public ListNode mergeKLists(List<ListNode> lists) {
         if (lists==null||lists.size()==0) return null;
