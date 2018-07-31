@@ -1,16 +1,16 @@
-public class Solution {
+class Solution {
     public int numDecodings(String s) {
-        int n = s.length();
-        if (n == 0) return 0;
-        
-        int[] memo = new int[n+1];
-        memo[n]  = 1;
-        memo[n-1] = s.charAt(n-1) != '0' ? 1 : 0;
-        
-        for (int i = n - 2; i >= 0; i--)
-            if (s.charAt(i) == '0') continue;
-            else memo[i] = (Integer.parseInt(s.substring(i,i+2))<=26) ? memo[i+1]+memo[i+2] : memo[i+1];
-        
-        return memo[0];
+        if(s.length()==0) 
+            return 0;
+        int[] dp = new int[s.length()+1];
+        dp[0] = 1;
+        dp[1] = s.charAt(0)=='0'? 0:1;
+        for(int i=2;i<=s.length();i++){
+            if(s.charAt(i-1)!='0')
+                dp[i] += dp[i-1];
+            if(s.charAt(i-2)!='0'&&Integer.parseInt(s.substring(i-2,i))<=26)
+                dp[i] += dp[i-2];
+        }
+        return dp[s.length()];
     }
 }
