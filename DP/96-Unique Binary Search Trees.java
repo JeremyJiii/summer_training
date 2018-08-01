@@ -10,3 +10,9 @@ public int numTrees(int n) {
 
     return G[n];
 }
+/*
+Explanation:
+            从1~n中选出一个数组来当做root
+            总个数 = （左字数个数 * 右子树个数） 的 求和。
+            左子树个数为dp[i-1],右子树为dp[n-i],当前长度为n
+*/
